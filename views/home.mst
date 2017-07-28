@@ -8,7 +8,7 @@
     <div class="container">
       <h1>Mystery Word</h1>
       <p class = "guesscounter">
-        You have _ guesses left.
+        You have {{count}} incorrect guesses left.
       </p>
       <p>
         {{#underscores}}
