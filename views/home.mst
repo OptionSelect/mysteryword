@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mystery Word</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Mystery Word</h1>
+      <p class = "guesscounter">
+        You have _ guesses left.
+      </p>
+      <p>
+        {{#underscores}}
+          {{.}}
+        {{/underscores}}
+      </p>
+      <form class="" action="/" method="post">
+        <input type="text" name="guess" value="">
+        <button type="submit" name="guessbutton">Make a Guess</button>
+      </form>
+      <p>
+        Guessed Letters:
+        {{#guesses}}<span>{{.}}, </span>{{/guesses}}
+      </p>
+    </div>
+  </body>
+</html>
