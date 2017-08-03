@@ -6,7 +6,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Mystery Word</h1>
+      <h1>Mystery Word!</h1>
       <p class = "guesscounter">
         You have {{count}} incorrect guesses left.
       </p>
@@ -15,10 +15,28 @@
           {{.}}
         {{/underscores}}
       </p>
+      {{#winCondish}}
+        <h1>Winner Winner Chicken Dinner!</h1>
+        <form class="" action="/again" method="post">
+          <button type="submit" name="againbutton">Play Again?</button>
+        </form>
+      {{/winCondish}}
+      {{#loseCondish}}
+        <h1>Nice Try!</h1>
+        <p>The word was {{#secretword}}{{.}}{{/secretword}}.</p>
+        <form class="" action="/again" method="post">
+          <button type="submit" name="againbutton">Play Again?</button>
+        </form>
+      {{/loseCondish}}
+      {{#playing}}
       <form class="" action="/" method="post">
         <input type="text" name="guess" value="">
         <button type="submit" name="guessbutton">Make a Guess</button>
       </form>
+      {{/playing}}
+      {{#errors}}
+        <p>{{msg}}</p>
+      {{/errors}}
       <p>
         Guessed Letters:
         {{#guesses}}<span>{{.}}, </span>{{/guesses}}
